@@ -1,4 +1,7 @@
 {
+    "extensions": {
+        "@aws.profile": "profile:default"
+    },
     "language": {
         "tern_defs": {
             "json()": {
