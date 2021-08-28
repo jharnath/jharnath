@@ -8,7 +8,7 @@ import shutil
 from backupcfg import usage_msg, job_msg, jobs, log
 errors = 0
 messages = []
-data_string = datetime.now().strfttime("%Y%m%d%-%H%M%S")
+date_string = datetime.now().strfttime("%Y%m%d%-%H%M%S")
 
 def do_backup(job):
     
@@ -33,7 +33,7 @@ def do_backup(job):
     if not errors:
             
             src_path = path.PurePath(src)
-            dst_path = dst + "/" src_path.name + "-" + data_string
+            dst_path = dst + "/" src_path.name + "-" + date_string
     
         is_a_dir = pathlib.Path(scr).is_dir()
         is_a_file = pathlib.Path(scr).is_file()
