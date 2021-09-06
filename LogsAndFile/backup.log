@@ -1,0 +1,13 @@
+20210906%H2643 job1 Source /home/ec2-user/environment/LogsAndFile/file1' does not exist -. FAIL
+20210906%H2643 job1 Destination /home/ec2-user/environment/LogsAndFile/file1' does not exist -. FAIL
+20210906%H2800% job2 Source /home/ec2-user/environment/LogsAndFile/file2' does not exist -. FAIL
+20210906%H2800% job2 Destination /home/ec2-user/environment/LogsAndFile/file2' does not exist -. FAIL
+20210906-092818 job2 Source /home/ec2-user/environment/LogsAndFile/file2' does not exist -. FAIL
+20210906-092818 job2 Destination /home/ec2-user/environment/LogsAndFile/file2' does not exist -. FAIL
+20210906-093136 job2 Source /home/ec2-user/environment/LogsAndFile/file2' does not exist -. FAIL
+20210906-093136 job2 Destination /home/ec2-user/environment/LogsAndFile/file2' does not exist -. FAIL
+20210906-093230 job2 Source /home/ec2-user/environment/LogsAndFile/file2' does not exist -. FAIL
+20210906-093230 job2 Destination /home/ec2-user/environment/LogsAndFile/file2' does not exist -. FAIL
+20210906-093418 job2 Destination /home/ec2-user/environment/LogsAndFile/file2' does not exist -. FAIL
+20210906-093423 job1 Backup file jobjob1SUCCED
+20210906-093507 job1 Backup file job job1 SUCCED

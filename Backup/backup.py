@@ -4,11 +4,12 @@ import sys
 import os
 import pathlib
 import shutil
+from datetime import datetime
 
-from backupcfg import usage_msg, job_msg, jobs, log
+from backupcfg import usage_msg, job_msg, jobs, logfile
 errors = 0
 messages = []
-date_string = datetime.now().strfttime("%Y%m%d%-%H%M%S")
+date_string = datetime.now().strftime("%Y%m%d-%H%M%S")
 
 def do_backup(job):
     
@@ -32,30 +33,30 @@ def do_backup(job):
     #Check if backup is copying is a file or directory
     if not errors:
             
-            src_path = path.PurePath(src)
-            dst_path = dst + "/" src_path.name + "-" + date_string
+        src_path = pathlib.PurePath(src)
+        dst_path = dst + "/" + src_path.name + "-" + date_string
     
-        is_a_dir = pathlib.Path(scr).is_dir()
-        is_a_file = pathlib.Path(scr).is_file()
+        is_a_dir = pathlib.Path(src).is_dir()
+        is_a_file = pathlib.Path(src).is_file()
    
     #Copys file to dst path and gives either succed or fail message to user
         if is_a_file:
             
             try:
                 shutil.copy(src, dst_path)
-                messages.append("Backup file job" + job + "SUCCED")
-            except Exception, e:
-                messages.append("Backup file job" + job + "FAIL")
+                messages.append("Backup file job " + job + " SUCCED")
+            except Exception as e:
+                messages.append("Backup file job " + job + " FAIL")
                 errors += 1
     
     #Copys dir to dst path and gives either succed or fail message to user            
-    elif is_a_dir:
+        elif is_a_dir:
             
             try:
                 shutil.copy(src, dst_path)
-                messages.append("Backup file job" + job + "SUCCED")
-            except Exception, e:
-                messages.append("Backup file job" + job + "FAIL")
+                messages.append("Backup file job " + job + " SUCCED")
+            except Exception as e:
+                messages.append("Backup file job " + job + " FAIL")
                 errors += 1
             
 #Write and or create a logfile
@@ -63,12 +64,13 @@ def do_logfile(job):
     
     global messages
     global date_string
+    global logfile
     
     file = open(logfile, "a") #"a" to create logfile if not already created
     
     for msg in messages:
         
-        log_message = date_string + " " + job " " + msg "\n"
+        log_message = date_string + " " + job + " " + msg + "\n"
         file.write(log_message)
         
     file.close()
